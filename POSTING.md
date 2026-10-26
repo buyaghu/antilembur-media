@@ -16,7 +16,7 @@ Ikuti langkah ini persis. Jangan memposting apa pun di luar prosedur ini.
 2. Baca `jadwal.json` dan cari entri sesuai aturan di atas. Kalau tidak ada, selesai tanpa mengubah apa pun.
 3. Pastikan `https://raw.githubusercontent.com/buyaghu/antilembur-media/main/<video>` mengembalikan HTTP 200.
 4. Pakai caption dari `jadwal.json` apa adanya. **Jangan** mengganti `#` dengan `%23`: Composio sudah meng-encode sendiri, dan `%23` akan tampil apa adanya di Instagram (terbukti di ep01).
-5. Composio `INSTAGRAM_POST_IG_USER_MEDIA` (akun `antilembur`): `ig_user_id`, `video_url` (URL raw di atas), `media_type` = `REELS`, `share_to_feed` = `true`, `caption`.
+5. Composio `INSTAGRAM_POST_IG_USER_MEDIA` (akun `antilembur`): `ig_user_id`, `video_url` (URL raw di atas), `media_type` = `REELS`, `share_to_feed` = `true`, `thumb_offset` = `2000`, `caption`. (`thumb_offset` memilih sampul dari detik ke-2; detik 0 masih hitam karena video dibuka dengan fade-in.)
 6. Composio `INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH`: `creation_id` dari langkah 5, `max_wait_seconds` = 300.
    - Kalau gagal karena video masih diproses, tunggu lalu publish lagi dengan `creation_id` yang sama.
    - Kalau container berstatus `ERROR`, buat container baru satu kali saja lalu publish.
